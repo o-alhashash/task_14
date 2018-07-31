@@ -1,6 +1,8 @@
-# Your imports should be here
+from rest_framework.generics import ListAPIView
+from .serializers import RestaurantSerializer
+from restaurants.models import Restaurant
 
 
-# Complete me! I should be your APIListView
-class RestaurantListView():
-	...
+class RestaurantListView(ListAPIView):
+    serializer_class = RestaurantSerializer
+    queryset = Restaurant.objects.all()
